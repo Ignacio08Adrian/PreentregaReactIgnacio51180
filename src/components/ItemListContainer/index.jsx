@@ -1,7 +1,13 @@
-const ItemListContainer = ({ greeting }) => {
+import "./Item.css";
+import Card from "../card";
+
+const ItemListContainer = ({ productos }) => {
+  console.log(productos);
   return (
-    <div>
-      <p>{greeting}</p>
+    <div className="flexs">
+      {productos.map((producto) => (
+        <Card key={producto.id} producto={producto} />
+      ))}
     </div>
   );
 };

@@ -1,16 +1,24 @@
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = ({ icono }) => {
+const Navbar = () => {
   return (
     <nav className="container_nav">
-      <p className="link_nav">Inicio</p>
+      <Link to="/home">
+        <p className="link_nav">Inicio</p>
+      </Link>
+      <Link to="/products">
+        <p className="link_nav">Productos</p>
+      </Link>
       <p className="link_nav">Informacion</p>
-      <p className="link_nav">Productos</p>
       <p className="link_nav">Contacto</p>
-      <img className="carrito_nav" src={icono} alt="" height="40" width="40" />
-      <div className="cantidad_nav">
-        <p className="circle_nav">2</p>
-      </div>
+      <p className="link_nav">Ordenar por:</p>
+      <Link to="/products/triple-aaa">
+        <p className="link_nav">Triple AAA</p>
+      </Link>
+      <Link to="/products/indies">
+        <p className="link_nav">Indies</p>
+      </Link>
     </nav>
   );
 };

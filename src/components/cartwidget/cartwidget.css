@@ -1,0 +1,24 @@
+.carrito_nav {
+  margin-top: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.circle_nav {
+  border: 1rem;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle_nav:hover {
+  background-color: greenyellow;
+  color: black;
+}
+
+.flex {
+  display: flex;
+}
