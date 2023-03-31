@@ -19,6 +19,8 @@ const Navbar = () => {
       <Link to="/products/indies">
         <p className="link_nav">Indies</p>
       </Link>
+      <p className="link_nav">triple-aaa</p>
+      <p className="link_nav">Indies</p>
     </nav>
   );
 };

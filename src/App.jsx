@@ -46,7 +46,12 @@ function App() {
           </Route>
           <Route
             path="/products"
-            element={<ItemListContainer productos={productos} />}
+            element={
+              <ItemListContainer
+                productos={productos}
+                setProductos={setProductos}
+              />
+            }
           ></Route>
           <Route
             path="/products/triple-aaa"
@@ -65,6 +70,14 @@ function App() {
                 productos={productos.filter((p) => p.categoria === "Indie")}
               />
             }
+          ></Route>
+          <Route
+            path="/products/indies/:id"
+            element={<ItemDetailContainer />}
+          ></Route>
+          <Route
+            path="/products/triple-aaa/:id"
+            element={<ItemDetailContainer />}
           ></Route>
           <Route path="/products/:id" element={<ItemDetailContainer />}></Route>
         </Routes>

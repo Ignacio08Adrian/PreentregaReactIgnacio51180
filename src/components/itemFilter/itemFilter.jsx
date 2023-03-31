@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
-  const [items, setItems] = useState([]);
+const ItemFilter = () => {
+  const [producto, setProducto] = useState({});
+  const { categoryid } = useParams();
 
   useEffect(() => {
-    fetch(`/items.json`)
+    fetch(`/itemss.json`)
       .then((response) => response.json())
-      .then((data) => {
-        setProductos(data);
-        setItems(data);
-      });
-  }, []);
-
-  function buscarTripleHandler(category) {
-    const FiltrarTripleA = productos.filter(producto);
-  }
-
-  return;
-  <div></div>;
+      .then((data) =>
+        setProducto(data.filter((producto) => producto.categoria == categoryid))
+      );
+  }, [categoryid]);
+  return (
+    <div>
+      <h3>{producto.nombre}</h3>
+      <img src={producto.imagen} alt={producto.imagen} />
+      <p>precio=${producto.price}</p>
+      <p>categoria={producto.categoria}</p>
+    </div>
+  );
 };
 
-export default ItemListContainer;
+export default ItemFilter;
