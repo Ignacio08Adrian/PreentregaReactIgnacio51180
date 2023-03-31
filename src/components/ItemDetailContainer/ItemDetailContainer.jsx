@@ -6,11 +6,16 @@ const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
   const { id } = useParams();
 
-  useEffect(() => {
-    fetch(`/itemss.json`)
-      .then((response) => response.json())
+  const getJueguito = async () => {
+    const response = await fetch(`/itemss.json`);
+    const data = await response
+      .json()
       .then((data) => setProducto(data.find((producto) => producto.id == id)));
-  }, [id]);
+  };
+
+  useEffect(() => {
+    getJueguito();
+  });
 
   return (
     <div className="card">
