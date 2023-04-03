@@ -1,13 +1,31 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Item.css";
-import Card from "../card";
+import { ItemList } from "../ItemList";
 
-const ItemListContainer = ({ productos }) => {
+const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
+  const { id } = useParams();
+  const Filtrado = async () => {
+    const response = await fetch(`/itemss.json`);
+    await response.json().then((data) => {
+      if (id) {
+        const filtro = data.filter((producto) => producto.categoria === id);
+        setProductos(filtro);
+      } else {
+        setProductos(data);
+      }
+    });
+  };
+
+  useEffect(() => {
+    Filtrado();
+  });
+
   return (
     <div>
       <div className="flexs">
-        {productos.map((producto) => (
-          <Card key={producto.id} producto={producto} />
-        ))}
+        <ItemList productos={productos} />
       </div>
     </div>
   );

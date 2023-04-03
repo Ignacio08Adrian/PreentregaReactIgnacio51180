@@ -5,7 +5,7 @@ const Card = ({ producto }) => {
   return (
     <div className="flexs">
       <div className="card">
-        <Link key={producto.id} to={`${producto.id}`}>
+        <Link key={producto.id} to={`/item/${producto.id}`}>
           <h3>{producto.nombre}</h3>
           <img src={producto.imagen} alt={producto.imagen} />
           <p>precio=${producto.price}</p>
