@@ -1,0 +1,12 @@
+.bonito {
+  background-color: blue;
+  color: white;
+  border: solid 0.2rem red;
+  display: flex;
+}
+
+.flexso {
+  display: block;
+  margin-right: 1.5rem;
+  margin-left: 1.46rem;
+}

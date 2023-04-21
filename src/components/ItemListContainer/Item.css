@@ -4,3 +4,11 @@
   padding: 0.5rem;
   flex-wrap: wrap;
 }
+
+.cargar {
+  height: 10rem;
+  width: 10rem;
+  color: blue;
+  margin: 5rem;
+  font-size: 5rem;
+}

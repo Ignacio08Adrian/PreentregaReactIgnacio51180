@@ -1,11 +1,34 @@
-import "./button.css";
+import { useState } from "react";
 
-const Button = ({ texto }) => {
+function Contador({ stock, onAgregar }) {
+  const [cantidad, setCantidad] = useState(1);
+
+  const restar = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
+  };
+
+  const sumar = () => {
+    if (cantidad < stock) {
+      setCantidad(cantidad + 1);
+    }
+  };
+
+  const agregarAlCarrito = () => {
+    onAgregar(cantidad);
+  };
+
   return (
-    <button className="button_general">
-      <span className="button2_general">{texto}</span>
-    </button>
+    <div>
+      <button onClick={restar}>-</button>
+      <span>{cantidad}</span>
+      <button onClick={sumar}>+</button>
+      <button onClick={agregarAlCarrito} disabled={cantidad > stock}>
+        Agregar al carrito
+      </button>
+    </div>
   );
-};
+}
 
-export default Button;
+export default Contador;

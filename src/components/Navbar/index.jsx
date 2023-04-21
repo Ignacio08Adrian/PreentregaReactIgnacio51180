@@ -10,8 +10,6 @@ const Navbar = () => {
       <Link to="/">
         <p className="link_nav">Productos</p>
       </Link>
-      <p className="link_nav">Informacion</p>
-      <p className="link_nav">Contacto</p>
       <p className="link_nav">Ordenar por:</p>
       <Link to="/category/triple-aaa">
         <p className="link_nav">Triple AAA</p>
