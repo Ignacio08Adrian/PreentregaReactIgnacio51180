@@ -5,26 +5,26 @@ import ItemCard from "../itemcard";
 import "./cart.css";
 import db from "../../../db/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const Cart = () => {
-  const { cart, totalPrecio } = useCartContext();
+  const { cart, totalPrecio, clearcart } = useCartContext();
   const [buyer, setBuyer] = useState({
     nombre: "",
     email: "",
     emailConfirm: "",
     phone: "",
-    address: "",
   });
-  const [successMsg, setSuccessMsg] = useState("");
   const handleChange = (e) => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleString();
   const order = {
     buyer: {
       nombre: buyer.nombre,
       email: buyer.email,
       phone: buyer.phone,
-      address: buyer.address,
     },
     item: cart.map((producto) => ({
       id: producto.id,
@@ -33,12 +33,25 @@ const Cart = () => {
       cantidad: producto.cantidad,
     })),
     total: totalPrecio(),
+    date: formattedDate,
   };
-  const handleClick = () => {
-    const orderCollection = collection(db, "orders");
-    addDoc(orderCollection, order).then(({ id }) => {
-      setSuccessMsg(`Compra exitosa! ID de compra: ${id}`);
-    });
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (
+      buyer.nombre !== "" &&
+      buyer.email !== "" &&
+      buyer.email === buyer.emailConfirm &&
+      buyer.phone !== ""
+    ) {
+      const orderCollection = collection(db, "orders");
+      addDoc(orderCollection, order).then(({ id }) => {
+        clearcart();
+        Swal.fire({
+          icon: "success",
+          title: `Compra exitosa! ID de compra: ${id}`,
+        });
+      });
+    }
   };
   if (cart.length === 0) {
     return (
@@ -57,15 +70,15 @@ const Cart = () => {
       ))}
       <p className="pbonito">total: {totalPrecio()}</p>
       <form>
-        <label>
+        <label className="pbonito">
           Nombre:
           <input type="text" name="nombre" onChange={handleChange} required />
         </label>
-        <label>
+        <label className="pbonito">
           Email:
           <input type="email" name="email" onChange={handleChange} required />
         </label>
-        <label>
+        <label className="pbonito">
           Confirmar email:
           <input
             type="email"
@@ -74,19 +87,14 @@ const Cart = () => {
             required
           />
         </label>
-        <label>
+        <label className="pbonito">
           Teléfono:
           <input type="text" name="phone" onChange={handleChange} required />
-        </label>
-        <label>
-          Dirección:
-          <input type="text" name="address" onChange={handleChange} required />
         </label>
         <button onClick={handleClick} type="submit">
           emitir compra
         </button>
       </form>
-      {successMsg && <p className="success">{successMsg}</p>}
     </>
   );
 };
