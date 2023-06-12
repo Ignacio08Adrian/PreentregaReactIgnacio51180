@@ -1,8 +1,7 @@
 .flexs {
   display: flex;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  flex-wrap: wrap;
+  margin: 0.7rem;
+  padding: 0.7rem;
 }
 
 .cargar {

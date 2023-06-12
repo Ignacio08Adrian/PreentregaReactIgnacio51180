@@ -1,4 +1,6 @@
 import { useState } from "react";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { Button } from "@mui/material";
 
 function Contador({ stock, onAgregar }) {
   const [cantidad, setCantidad] = useState(1);
@@ -24,9 +26,13 @@ function Contador({ stock, onAgregar }) {
       <button onClick={restar}>-</button>
       <span>{cantidad}</span>
       <button onClick={sumar}>+</button>
-      <button onClick={agregarAlCarrito} disabled={cantidad > stock}>
+      <Button
+        startIcon={<AddShoppingCartIcon />}
+        onClick={agregarAlCarrito}
+        disabled={cantidad > stock}
+      >
         Agregar al carrito
-      </button>
+      </Button>
     </div>
   );
 }

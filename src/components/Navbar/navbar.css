@@ -1,13 +1,21 @@
 .container_nav {
   border: 0;
   border-radius: 1rem;
-  background-image: linear-gradient(150deg, #9500ff, #09f, #00ddff);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(9, 9, 121, 1) 42%,
+    rgba(0, 212, 255, 1) 50%,
+    rgba(9, 9, 121, 1) 58%
+  );
   display: flex;
 }
 
 .link_nav {
   margin: 3rem;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .link_nav:hover {

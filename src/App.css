@@ -2,12 +2,6 @@
   display: flex;
 }
 
-.all {
-  background-image: url(/assets/thumb-1920-927337.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .space {
   padding: 1rem;
   margin: 1rem;
@@ -17,4 +11,17 @@
   display: flex;
   margin-right: 1.5rem;
   margin-left: 1.46rem;
+}
+
+footer {
+  background-color: gainsboro;
+}
+
+.control {
+  width: 5rem;
+  height: 5rem;
+}
+
+.smoke {
+  background-color: whitesmoke;
 }

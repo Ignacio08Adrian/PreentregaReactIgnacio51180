@@ -5,6 +5,8 @@ import Contador from "../button";
 import { doc, getDoc } from "firebase/firestore";
 import db from "../../../db/firebase-config";
 import { useCartContext } from "../../context/cartcontext";
+import { Button } from "@mui/material";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
@@ -51,7 +53,11 @@ const ItemDetailContainer = () => {
                 <p>categoria={producto.categoria}</p>
                 <p>resumen={producto.descripcion}</p>
                 {goToCart ? (
-                  <Link to="/cart">terminar compra</Link>
+                  <Link to="/cart">
+                    <Button startIcon={<ShoppingCartCheckoutIcon />}>
+                      terminar compra
+                    </Button>
+                  </Link>
                 ) : (
                   <Contador stock={5} onAgregar={agregarAlCarrito} />
                 )}
