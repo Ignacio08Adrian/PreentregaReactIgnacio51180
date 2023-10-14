@@ -11,9 +11,8 @@ import {
 import Truenavbarlist from "./navbardrawer";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import Cartwidget from "../cartwidget";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navlinks = [
   {
@@ -49,7 +48,14 @@ export default function Truenavbar() {
             <MenuIcon fontSize="large" />
           </IconButton>
           <IconButton>
-            <VideogameAssetIcon />
+            <Link to="/home">
+              <img
+                src="../public/assets/game-control-doodle-svgrepo-com.svg"
+                alt=""
+                height="50"
+                width="40"
+              />
+            </Link>
           </IconButton>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Tienda my games

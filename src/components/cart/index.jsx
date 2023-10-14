@@ -6,6 +6,7 @@ import "./cart.css";
 import db from "../../../db/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { Button } from "@mui/material";
 
 const Cart = () => {
   const { cart, totalPrecio, clearcart } = useCartContext();
@@ -70,15 +71,15 @@ const Cart = () => {
       ))}
       <p className="pbonito">total: {totalPrecio()}</p>
       <form>
-        <label className="pbonito">
+        <label className="pbonito not-flex">
           Nombre:
           <input type="text" name="nombre" onChange={handleChange} required />
         </label>
-        <label className="pbonito">
+        <label className="pbonito not-flex">
           Email:
           <input type="email" name="email" onChange={handleChange} required />
         </label>
-        <label className="pbonito">
+        <label className="pbonito not-flex">
           Confirmar email:
           <input
             type="email"
@@ -87,13 +88,19 @@ const Cart = () => {
             required
           />
         </label>
-        <label className="pbonito">
+        <label className="pbonito not-flex">
           Teléfono:
           <input type="text" name="phone" onChange={handleChange} required />
         </label>
-        <button onClick={handleClick} type="submit">
-          emitir compra
-        </button>
+        <Button
+          className="not-flex"
+          onClick={handleClick}
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
+          Emitir compra
+        </Button>
       </form>
     </>
   );

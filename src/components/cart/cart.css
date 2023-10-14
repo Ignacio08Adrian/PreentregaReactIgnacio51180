@@ -1,3 +1,7 @@
 .pbonito {
   font-size: 1rem;
 }
+
+.not-flex {
+  display: block;
+}

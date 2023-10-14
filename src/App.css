@@ -25,3 +25,7 @@ footer {
 .smoke {
   background-color: whitesmoke;
 }
+
+body {
+  background-size: 100vh;
+}

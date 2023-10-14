@@ -9,10 +9,10 @@ const Home = () => {
         <Typography variant="h2" gutterBottom>
           TIENDA MY GAMES
         </Typography>
-        <div className="flex">
+        <div className="flex_button">
           <img
             src="https://i.pinimg.com/originals/f7/a3/3a/f7a33af19c2e88cb2ee3a8697b46e0f2.png"
-            alt=""
+            alt="es la cara del personaje de videojuegos mario"
             width="80"
             height="70"
             className="circle"
@@ -35,7 +35,7 @@ const Home = () => {
             />
           </Grid>
         </Grid>
-        <div className="flex">
+        <div className="flex_button">
           <Typography variant="subtitle1" gutterBottom>
             como bien sabeis, la nintendo switch cuenta con un catalogo muy
             amplio de videojuegos, nosotros tenemos nuestros favoritos e

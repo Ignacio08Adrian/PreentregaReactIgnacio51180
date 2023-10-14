@@ -56,7 +56,7 @@ function App() {
                       </a>
                     </Grid>
                     <Grid item xs={2} md={1}>
-                      <a href="https://web.whatsapp.com/" target="_blank">
+                      <a href="https://twitter.com" target="_blank">
                         <TwitterIcon fontSize="large" />
                       </a>
                     </Grid>
