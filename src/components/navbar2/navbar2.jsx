@@ -50,7 +50,7 @@ export default function Truenavbar() {
           <IconButton>
             <Link to="/home">
               <img
-                src="./public/assets/game-control-doodle-svgrepo-com.svg"
+                src="https://ih1.redbubble.net/image.2683620725.6778/flat,750x1000,075,f.jpg"
                 alt=""
                 height="50"
                 width="40"
